@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <button mat-icon-button (click)="isNaviTreeOpen = !isNaviTreeOpen"> <mat-icon>toc</mat-icon></button>
+	<div class="logo">Sunny Day</div>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/login">Login</a>
+        <a class="nav-item nav-link" routerLink="/navitree">NaviTree</a>
+    </div>
+    <app-navi-tree [@flyInOut]="isNaviTreeOpen ? 'show' : 'hide'" class="home-nav"></app-navi-tree>
+    <!--<app-navi-tree @flyInOutLeft *ngIf="isNaviTreeOpen" class="home-nav"></app-navi-tree>-->
+</nav>
+
+<!-- main content container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

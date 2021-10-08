@@ -1,0 +1,29 @@
+<section class="title-section">
+    <h2 class="mat-h2">Welcome {{accName}} !!</h2>
+    <mat-slide-toggle [checked] = "candidateBtnChecked" (change)="onCandidate($event)">candidate myself</mat-slide-toggle>
+</section>
+
+<mat-grid-list cols="4" rowHeight="50px">
+    <mat-grid-tile class="users-cell" [rowspan]="16" [colspan]="2" >
+        <app-tab-users></app-tab-users>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="grid-title" [rowspan]="1" [colspan]="1" >
+        <h4 id="usersColumnTitle" class="mat-h4">Candidates</h4>
+    </mat-grid-tile>
+    <mat-grid-tile class="grid-title" [rowspan]="1" [colspan]="1" >
+        <button mat-stroked-button color="accent" (click)="onVote(selectedCandid.selectedOptions.selected)">vote</button>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="16" [colspan]="2" >
+        <mat-selection-list class="user-list" #selectedCandid>
+            <mat-list-option *ngFor="let voting of votings" [value] = "voting.candidateEmail">
+                {{voting.candidateEmail}}
+                {{voting.votingCounter}}
+            </mat-list-option>
+            <mat-hint >max votes: 3  </mat-hint>
+            <mat-error *ngIf="isVotingInvalid(selectedCandid)">  you have selected more than 3!</mat-error>
+        </mat-selection-list>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+

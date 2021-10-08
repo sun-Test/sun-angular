@@ -1,0 +1,19 @@
+.doc-tree-invisible {
+    display: none;
+}
+
+.doc-tree ul,
+.doc-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+mat-tree{
+	background-color: skyblue;
+}
+.mat-tree-node {
+	display: inline;
+}
+.toggleBtn {
+	/*height: 1px;*/
+}

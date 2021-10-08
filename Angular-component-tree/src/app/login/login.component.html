@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        Value: {{form.value | json}}
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Email" [formControl]="emailControl" required />
+          <mat-error *ngIf = "emailControl.invalid ">
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <mat-checkbox formControlName="agr" color="primary" id = "agr"></mat-checkbox>
+          <label for="agr" class="form-check-label">  * pls. Accept Terms & Conditions</label>
+          <mat-error *ngIf="submitted && agrControl.invalid">pls. accept terms and condition and conditionss</mat-error>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="basic" type = "ngSubmit" >register</button>
+          <button mat-raised-button color="primary" (click)="onLogin()">Login</button>
+        </div>
+     </form>
+    </mat-card-content>
+  </mat-card>
